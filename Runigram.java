@@ -157,17 +157,16 @@ public class Runigram {
 		//// Replace the following statement with your code
 		int rowsize = image.length;
 		int colsize = image[1].length;
-		Color[][] tempimg = new Color[rowsize][colsize];
-		tempimg = image;
+		//Color[][] tempimg = new Color[rowsize][colsize];
+		//tempimg = image;
 		Color[][] grayscaleimg = new Color[rowsize][colsize];
 		Color temppixel = new Color(0,0,0);
-		for(int i=0; i < colsize; i++)
+		for(int i=0; i < rowsize; i++)
 		{
-			for(int j=0; j < rowsize; j++)
+			for(int j=0; j < colsize; j++)
 			{
-				temppixel = luminance(tempimg[i][j]); //take the pixel and save the gray result in another parameter
+				temppixel = luminance(image[i][j]); //take the pixel and save the gray result in another parameter
 				grayscaleimg[i][j] = temppixel;
-
 			}
 		}
 		return grayscaleimg;
