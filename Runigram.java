@@ -28,9 +28,14 @@ public class Runigram {
 		System.out.println("Vertically: ");
 		print(imageOut);
 		*/
-
+		/* 
 		imageOut = grayScaled(tinypic);
 		System.out.println("GrayScale: ");
+		print(imageOut);
+
+		*/
+		imageOut = scaled(tinypic,800,500);
+		System.out.println("scaled 800 500: ");
 		print(imageOut);
 		
 		//// Write here whatever code you need in order to test your work.
@@ -178,7 +183,17 @@ public class Runigram {
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
 		//// Replace the following statement with your code
-		return null;
+		int originalrowsize = image.length;
+		int originalcolsize = image[1].length;
+		Color[][] scaledimg = new Color[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				scaledimg[i][j] = image[(int) ((double) i * ((double) originalrowsize / width))]
+										[(int) ((double) j * ((double) originalcolsize / height))];
+			}
+		}
+
+		return scaledimg;
 	}
 	
 	/**
