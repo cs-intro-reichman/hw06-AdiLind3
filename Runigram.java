@@ -186,10 +186,11 @@ public class Runigram {
 		int originalrowsize = image.length;
 		int originalcolsize = image[1].length;
 		Color[][] scaledimg = new Color[width][height];
+		double newWidth = (double) (originalrowsize) / width;
+    	double newHeight = (double) (originalcolsize) / height;
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				scaledimg[i][j] = image[(int) ((double) i * ((double) originalrowsize / width))]
-										[(int) ((double) j * ((double) originalcolsize / height))];
+				scaledimg[i][j] = image[(int) (i * newWidth)][(int) (j * newHeight)];
 			}
 		}
 
