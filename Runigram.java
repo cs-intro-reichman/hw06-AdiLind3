@@ -10,7 +10,7 @@ public class Runigram {
 		//// Hide / change / add to the testing code below, as needed.
 		
 		// Tests the reading and printing of an image:	
-		Color[][] tinypic = read("tinypic.ppm");
+		Color[][] tinypic = read("eyes.ppm");
 		print(tinypic);
 
 		// Creates an image which will be the result of various 
@@ -185,12 +185,12 @@ public class Runigram {
 		//// Replace the following statement with your code
 		int originalrowsize = image.length;
 		int originalcolsize = image[1].length;
-		Color[][] scaledimg = new Color[width][height];
-		double newWidth = (double) (originalrowsize) / width;
-    	double newHeight = (double) (originalcolsize) / height;
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				scaledimg[i][j] = image[(int) (i * newWidth)][(int) (j * newHeight)];
+		Color[][] scaledimg = new Color[height][width];
+		double newWidth = (double) (originalcolsize) / width;
+    	double newHeight = (double) (originalrowsize) / height;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				scaledimg[i][j] = image[(int) (i * newHeight)][(int) (j * newWidth)];
 			}
 		}
 
