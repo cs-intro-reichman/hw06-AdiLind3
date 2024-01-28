@@ -205,7 +205,12 @@ public class Runigram {
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
 		//// Replace the following statement with your code
-		return null;
+		int newRed = (int) (c1.getRed() * alpha  + c2.getRed() * (1-alpha)) ;
+		int newGreen = (int) (c1.getGreen() * alpha  + c2.getGreen() * (1-alpha));
+		int newBlue = (int) (c1.getBlue() * alpha + c2.getBlue() * (1-alpha));
+		Color blendpixel = new Color (newRed,newGreen,newBlue);
+
+		return blendpixel;
 	}
 	
 	/**
@@ -216,7 +221,19 @@ public class Runigram {
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
 		//// Replace the following statement with your code
-		return null;
+		int rowsize = image1.length;
+		int colsize = image1[1].length;
+		Color[][] tempimg = new Color[rowsize][colsize];
+		for(int i=0; i < rowsize; i++)
+		{
+			for(int j=0; j < colsize; j++)
+			{
+				tempimg[i][j] = blend(image1[i][j], image2[i][j], alpha);
+			}
+		}
+		
+
+		return tempimg;
 	}
 
 	/**
