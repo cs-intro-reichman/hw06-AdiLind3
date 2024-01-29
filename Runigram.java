@@ -244,7 +244,26 @@ public class Runigram {
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
 		//// Replace this comment with your code
-	}
+		int sourcerowsize = source.length; //all of this elements not really neccesery but its make the code more readable
+		int sourcecolsize = source[1].length;
+		int targetrowsize = target.length;
+		int targetcolsize = target[1].length;
+		Color[][] result = new Color[sourcerowsize][sourcecolsize];
+		Color[][] targetscaled = new Color[sourcerowsize][sourcecolsize];
+		if((sourcerowsize != targetrowsize) || (sourcecolsize != targetcolsize)) //fix the scales if the images dont have the same dimensions 
+		{
+				targetscaled = scaled(target, sourcecolsize, sourcerowsize);
+		}
+		for(int k = 0 ; k <= n ; k++)
+		{
+			double alpha = (double) ((double)(n-k)/ (double) n); //set the alpha for this part of blending
+			result = blend(source, targetscaled, alpha);
+			Runigram.setCanvas(result);
+			Runigram.display(result);
+			StdDraw.pause(500);
+
+		}
+	} 
 	
 	/** Creates a canvas for the given image. */
 	public static void setCanvas(Color[][] image) {
