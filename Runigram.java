@@ -254,6 +254,9 @@ public class Runigram {
 		{
 				targetscaled = scaled(target, sourcecolsize, sourcerowsize);
 		}
+		else{
+			targetscaled = target;
+		}
 		for(int k = 0 ; k <= n ; k++)
 		{
 			double alpha = (double) ((double)(n-k)/ (double) n); //set the alpha for this part of blending
